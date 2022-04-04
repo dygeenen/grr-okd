@@ -1,0 +1,237 @@
+Bugs connus sur la version de GitHub :
+ - des problèmes se produisent parfois lorsqu'on veut faire une modification/copie de réservation avec un changement de domaine
+
+Tâches prévues :
+ - modularisation de l'authentification
+ - gestion des champs additionnels sur plusieurs domaines
+
+-----
+--
+-----
+
+Version 3.4.3
+    ajout : fonctionnalité "participants": permet à un utilisateur autorisé d'ouvrir les inscriptions à un événement et aux utilisateurs connectés de s'inscrire
+    amélioration : info-bulles avec tooltip bootstrap dans admin_overload.php
+    amélioration : filtrage des adresses iPv6 par un filtre au format CIDR
+    correctif : l'entrée des couleurs des types par couleur prédéfinie peut se faire avant ou après le choix de la couleur du texte
+    correctif : la suppression d'une série s'arrêtait au jour sélectionné
+    correctif : prise en compte des options désélectionnées dans la page de gestion des affichages
+    correctifs : syntaxe
+    correctifs : gestion des conflits
+    correctifs : notamment pour compatibilité php8
+    correctifs : liens de navigation en cas d'édition d'une réservation existante
+	modification : champ REMOTE_ADDR de la table grr_log afin d'accepter les connexions depuis ipv6
+    modification : type du champ delais_min_resa_room afin de pouvoir bloquer une ressource au moins un mois à l'avance
+    modification : prise en compte des heures de début et de fin dans le sélecteur (page de réservation)
+    modification : rétablissement du fichier .gitignore
+    modification : mise en page et message si domaine vide ou dont les ressources sont inaccessibles
+Sous-version 3.4.3a
+    ajout : possibilité d'inscrire un tiers participant
+    ajout : fonction ajustant une plage à des jours réservables
+    amélioration : accès au bouton (copier) découplé de (modifier/effacer/échanger) pour pouvoir reprendre les données d'une réservation passée
+    amélioration : indicateur de complexité du mot de passe
+    amélioration : réinscription des participants lors de la modification d'UNE réservation
+    amélioration : accès des gestionnaires de ressources à la page d'administration pour accéder à la liste des réservations à modérer
+    correctif : bug affichage dans week.php et nettoyage du code
+    correctif : les accents circonflexes étaient perdus
+
+-----
+--
+-----
+
+Version 3.4.2 
+    ajout : fonctionnalité de limitation du quota de réservations sur une période
+    ajout : indicateur de complexité de MDP + mes réservations + refonte de la page my_account.php
+    ajout : popup de visualisation des administrateurs de site
+    ajout : possibilité de fixer l'expéditeur des mails (devrait passer les serveurs SMTP refusant le relai)
+    ajout : champs additionnels dans les messages de modération
+    ajout : info-bulle sur les privilèges
+    ajout : champ "mot de passe à modifier" dans le fichier csv d'importation d'utilisateurs
+    amélioration : prise en compte de plusieurs comptes mail d'administrateurs
+    amélioration : possibilité d'imposer un changement de mot de passe (rétro-portage et amélioration du code)
+    amélioration : récupération des couleurs personnalisées
+    amélioration : traitement des doublons dans la définition des sites
+    amélioration : premiers paramètres à l'installation
+    correctif : affichage des ressources par domaine dans la page year_all (monosite)
+    correctif : visibilité du bouton toTop
+    correctif : formulaire affiché seulement pour un utilisateur autorisé
+    correctifs : gestion de timePicker et DatePicker
+    correctif : décompte des réservations à modérer pour un gestionnaire de ressource
+    correctif : gestion des champs additionnels dans les rapports statistiques
+    correctifs : divers, syntaxe et calcul
+    correctif : prise en compte du changement de mot de passe dans les imports csv d'utilisateurs
+    correctif : le nom d'utilisateur SMTP peut dépendre d'un domaine AD
+    correctif : prévient une mauvaise mise en page par Firefox du planning week_all en mode preview
+    mise à jour : jquery en 3.4.1 (progressivement)
+    mise à jour : select2 en 4.0.13
+    mise à jour : jQuery-UI en v1.12.1
+    mise à jour : ckeditor en version 4.14
+    mise à jour : phpmailer en version 5.2.28
+    mise à jour : phpCAS en version 1.3.8
+    mise à jour : script floatThead
+    modification : calcul et présentation de la page d'édition des réservations (edit_entry.php), avec notamment un outil de recherche d'utilisateurs, les champs additionnels ne devraient plus être perdus, les champs obligatoires sont mieux identifiés
+    modification : rétablissement du choix du nombre de calendriers à afficher dans le menu gauche (ou haut)
+    modification : gestion des types (n'utilise plus le fichier types.css mais évalue les types avant de calculer la section <head>, devrait résoudre les pbs de cache)
+    modification : champ destinataire spécifique, style de la page, clé unique dans la définition des champs additionnels
+    modification : conformité avec le schéma v4.0
+    modification : séparation des date, heure de début et durée dans les rapports
+    modification : calcul et présentation des pages planning
+Sous-version 3.4.2a
+    amélioration : internationalisation du formulaire de contact
+    amélioration : paramètre dans config.inc.php pour gérer l'affichage du lien vers la page des CGU depuis la page login.php
+    correctifs : liens manquants, titre planning
+    correctif : retour à la ligne inutile si description vide
+    correctif : rétablissement du pop-up de notification après une réservation
+    correctif : position du choix des ressources en mode arborescence
+    correctif : prise en compte du paramètre d'affichage de la légende des types
+    MAJ fichier de langue allemande
+    modification : si le domaine par défaut choisi par l'utilisateur est rendu inaccessible, page_accueil() renvoie vers le domaine par défaut choisi par l'administrateur
+Sous-version 3.4.2b
+    amélioration : prise en compte des sélections de fond dans admin_type_modify
+    correctif : chargement de fonctions manquantes dans changepwd
+    correctif : droits d'accès mal gérés dans edit_entry
+    correctif : erreur de type si bénéficiaire extérieur dans report
+    correctif : recherche de ressources à réservation restreinte dans le menu des pages admin
+    correctif : nom de variable dans admin_user
+    mise à jour : fichier des vacances scolaires (France)
+    modification : calcul des sélecteurs de site (devrait n'afficher que les sites dont un domaine est accessible à l'utilisateur)
+    modification : sélecteur de site (calcul des utilisateurs administrateurs potentiels)
+    modification : visibilité des champs additionnels dans la page de description d'une réservation
+Sous-version 3.4.2c
+    amélioration : possibilité, en cas de conflit entre réservations sur une périodicité, de poser les réservations sauf celles en conflit
+    amélioration : les noms des champs additionnels doivent être alphanumériques, les caractères diacritiques sont acceptés
+    correctifs de code divers
+    correctif : code du bandeau haut de page (l'heure et les drapeaux devraient s'afficher dans tous les cas)
+    modification : code de la fonction getWritable (transparent pour l'utilisateur)
+
+-----
+--
+-----
+
+Version 3.4.1
+    [ajout] Echange de deux réservations
+    [ajout] Page year_all affichant les réservations sur plusieurs mois et plusieurs domaines (à utiliser avec prudence s'il y a beaucoup de réservations ou de ressources)
+    [ajout] Contenu des champs additionnels dans les exports csv
+    [ajout] Gestion des couleurs du texte des types de réservation (meilleure lisibilité dans les plannings)
+    [ajout] Page d'interface de personnalisation des couleurs
+    [amelioration] Reprise du code des pages plannings pour gérer les menus escamotables (haut et gauche) 
+    [modification] Utilisation de jscolor pour définir les couleurs des types
+    [modification] Page d'accueil de la section administration
+    [modification] Gestion de l'affichage des champs additionnels
+    [correction] meilleure prise en compte des réglages par défaut
+Sous-version 3.4.1a (version de maintenance)
+	[correction] divers bugs, compatibilité php7, erreurs de syntaxe ou orthographiques
+Sous-version 3.4.1b 
+	[ajout] possibilité de définir un type et affecter ce type à la fonction "cacher sur les plannings week_all, month et month_all"
+	[amélioration] configuration LDAP acceptant le protocole LDAPS
+	[amélioration] gestion des champs additionnels dans edit_entry
+	[correction] divers bugs, erreurs de syntaxe ou orthographiques
+	[modification] limitation de la taille des données conformément à la base
+	[modification] calcul et aspect de la page de contact externe
+Sous-version 3.4.1c
+    [correction] failles de sécurité dans formulaire de contact et gestion des ressources
+    [correction] divers bugs, erreurs de syntaxe ou orthographiques
+Sous-version 3.4.1d
+    [ajout] mail au modérateur en cas de suppression
+    [correction] filtrage amélioré des données
+    [correction] dans view_entry, le formulaire est affiché seulement pour les utilisateurs autorisés
+    [correction] syntaxe php et html
+    [correction] visibilité du bouton toTop
+    [mises à jour] ckeditor v.4.14, phpCAS V.1.38, phpmailer v.5.2.28, floatThead v.2.1.4, vacances.xml
+Sous-version 3.4.1e
+    [amélioration] internationalisation
+    [correction] nom du bénéficiaire en modification d'une réservation existante
+    [correction] syntaxe
+    [modification] acceptation des adresses mail en localhost
+    [modification] alerte envoyée aux administrateurs de la ressource, à défaut du domaine, à défaut du site, sinon aux administrateurs généraux
+Sous-version 3.4.1f
+    [amélioration] prise en charge du protocole LDAPS
+    [correction] points mineurs du code
+    [modification] évite l'autonégociation en SMTPS
+Sous-version 3.4.1g
+    [correction] erreurs syntaxiques
+    [correction] affichage des plannings week_all en mode preview
+    [correction] pallie l'absence de $_SERVER['HTTP_REFERER'] si le serveur ne donne pas cette valeur
+    [modification] rétablissement du choix du nombre de calendriers à afficher dans le menu gauche (ou haut)
+    [modification] définition de la fonction changeRooms ; devrait accélérer l'affichage de la page edit_entry
+
+-----
+--
+-----
+
+Version 3.4.0
+	[ajout] Personnalisation des couleurs pour les types de réservation depuis l'administration, soit un passage de 28 couleurs à 16 777 216 couleurs
+	[ajout] Possibilité d'afficher le formulaire de demande de réservation aux non connectés et aux visiteurs ou simplement aux visiteurs 
+	[ajout] Interdire les différentes configurations d'authentification externe via le fichier de config
+	[ajout] Menu administration : Couleur bleu sur le lien où l'on se situe
+	[ajout] Menu administration : Possiblité d'accéder au lien où l'on se situe
+	[ajout] Moteur de page
+	[ajout] Conditions Générales d'Utilisation personnalisables
+	[ajout] Lors de l'envoi mail, notifier le changement de ressources s'il y a lieu
+	[ajout] Gestion de modules externes
+    [ajout] message dans l'entête s'il existe une réservation à modérer
+    [amélioration] filtrage par plage IP au format CIDR
+    [amélioration] retour à la page d'appel après modération
+    [amélioration] présentation des réservations modérées
+    [amélioration] possibilité d'utiliser les couleurs du texte et du fond
+    [amélioration] intégration au portail EnvOLE
+    [amélioration] filtrage des adresses mail
+    [amélioration] affichage et liens pour créer une réservation en page month_all2
+    [amélioration] affichage des menus, changement de paramétrage de make_room_list_html
+    [amélioration] affichage des réservations successives dans une journée en page week_all
+    [correctif] paramètre manquant dans mysqli_connect
+    [correctif] divers correctifs syntaxiques
+    [correctif] donner une valeur numérique à $dbPort
+    [correctif] prise en compte des préférences de l'utilisateur dans le calcul de la page d'accueil
+    [correctif] la couleur jaune est illisible sur fond blanc
+    [correctif] affichage ou non de l'imprimante
+    [correctif] gestion du menu gauche escamotable
+	[mise à jour] CKEditor 4.8.0 
+	[modification] Génération des PDF, on parle de ressource et non de salle, réorganisation du format PDF (compatible en enveloppe fenêtre)
+	[modification] Date de début et fin des réservations par défaut lors d'une première installation
+	[modification] Longueur minimum du mot de passe, passage de 6 à 8 caractères lors d'une première installation
+	[modification] Conformité avec le RGPD
+    [modification] boutons mois précédent/suivant
+
+	
+-----
+--
+-----
+
+Version 3.3.1
+    [ajout] Visualisation des utilisateurs avec un mot de passe trop simple (A titre indicatif, certains mots de passe simples ne sont pas listés)
+    [ajout] Configuration du calendrier des vacances depuis l'administration
+    [ajout] Nouveau calendrier pour indiquer les fériés depuis l'administration
+    [ajout] Ajout de fichiers redirection pour empêcher la lecture de certains répertoires
+    [ajout] Champs additionnels dans l'affichage d'une réservation
+    [ajout] Page permettant la suppression de toutes les réservations postérieures à une date
+    [ajout] Page permettant la suppression de toutes les réservations antérieures à une date
+    [ajout] Page permettant de réserver en masse à partir d'un fichier csv
+    [ajout] Page permettant de réserver en masse à partir d'un fichier csv issu du logiciel UnDeuxTemps
+    [ajout] bibliothèques phpCAS dans le dossier /include
+    [ajout] Lien vers la page year.php depuis le numéro de l'année dans les pages month*.php
+	[ajout] Variable dans config permettant de désactiver la recherche de mise à jour
+    [correction] Affichage des champs additionnel, même dans le cas de caractère non utf8
+    [correction] Bordure de séparation pour les réservations entre les réservations dans la vue mois d'une ressources
+    [correction] Bordure de séparation pour les réservations entre les réservations dans la vue mois d'un domaine
+    [correction] Correction de la connexion LDAP lorsqu'un utilisateur externe existant se connecte ( merci à pboissonneault )
+    [correction] Affichage de la colonne gauche de l'admin dans la page admin_import_users_csv.php
+	[correction] Vue semaine d'une ressource sur plusieurs jour (horaire et crénaux)
+    [modification] La configuration d'un cas SSO ce fait depuis l'administration
+    [modification] Déplacement images dans le dossier approprié
+    [modification] de la page admin_calend.php pour en faire une page de choix entre:
+        -- l'ancienne page admin_calend.php renommée admin_calend2.php
+        -- une page permettant de supprimer toutes les réservations avant une date donnée
+        -- une page permettant de supprimer toutes les réservations après une date donnée
+        -- une page permettant de réserver en masse à partir d'un fichier csv
+        -- une page permettant de réserver en masse à partir d'un fichier csv issu du logiciel UnDeuxTemps
+    [modification] reprise des patches utilisés dans GEPI pour utilisation derrière un reverse-proxy
+	[modification] Amélioration du bandeau du haut : Supression texte "Accueil", réduction de la hauteur, optimisation du contenu
+	[modification] Passage d'image en CSS (Glyphicon)
+    [Suppression] Fichiers inutiles
+    [mise à jour] fichier des vacances scolaires (source index-education)
+    [mise à jour] documentation
+
+
+Version 3.3.0 et inférieur
+- Voir sur le site grr.devome.com
