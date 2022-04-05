@@ -36,6 +36,7 @@ RUN set -eux; \
 	docker-php-ext-install -j$(nproc) \
 		intl \
 		zip \
+		mysqli \
 	; \
 	pecl install \
 		apcu-${APCU_VERSION} \
@@ -44,6 +45,7 @@ RUN set -eux; \
 	docker-php-ext-enable \
 		apcu \
 		opcache \
+		mysqli \
 	; \
 	\
 	runDeps="$( \
