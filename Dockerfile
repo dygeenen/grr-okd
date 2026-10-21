@@ -4,7 +4,7 @@
 
 
 # https://docs.docker.com/engine/reference/builder/#understand-how-arg-and-from-interact
-ARG PHP_VERSION=7.3.33
+ARG PHP_VERSION=7.3
 
 # "php" stage
 FROM php:${PHP_VERSION}-fpm-alpine
